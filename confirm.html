@@ -4,121 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>予約確認</title>
-  <style>
-    :root {
-      --primary: #06C755; /* LINEカラー */
-      --bg: #F5F6F8;
-      --card-bg: #FFFFFF;
-      --text: #111111;
-      --sub-text: #666666;
-      --status-ok: #28a745;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-    }
-
-    header {
-      background-color: var(--primary);
-      color: white;
-      padding: 16px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.1rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .container {
-      padding: 16px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-size: 0.95rem;
-      font-weight: bold;
-      color: var(--sub-text);
-      margin-bottom: 12px;
-    }
-
-    .card-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      padding: 16px;
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #EAEAEA;
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-    }
-
-    .status-badge {
-      background-color: #E8F5E9;
-      color: var(--status-ok);
-      font-size: 0.75rem;
-      font-weight: bold;
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .info-row {
-      display: flex;
-      font-size: 0.85rem;
-      margin-bottom: 6px;
-    }
-
-    .info-label {
-      color: var(--sub-text);
-      width: 80px;
-      flex-shrink: 0;
-    }
-
-    .info-value {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .btn-cancel {
-      width: 100%;
-      background-color: #FFF;
-      color: #E53935;
-      border: 1px solid #E53935;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 12px;
-    }
-
-    .btn-cancel:active {
-      background-color: #FFEBEE;
-    }
-  </style>
+  <link rel="stylesheet" href="confirm-style.css">
 </head>
 <body>
 
@@ -127,39 +13,11 @@
   <div class="container">
     <div class="section-title">現在の予約状況</div>
 
-    <div class="card-list">
-      <!-- 予約カード1 -->
-      <div class="card">
-        <div class="card-top">
-          <span style="font-size: 0.8rem; color: var(--sub-text);">予約ID: #10024</span>
-          <span class="status-badge">予約確定</span>
-        </div>
-        <div class="card-title">すまいるキッズ保育園（一時預かり）</div>
-        
-        <div class="info-row">
-          <div class="info-label">利用日時</div>
-          <div class="info-value">2026年9月10日(木) 10:00〜14:00</div>
-        </div>
-        <div class="info-row">
-          <div class="info-label">場所</div>
-          <div class="info-value">東京都板橋区...</div>
-        </div>
-        <div class="info-row">
-          <div class="info-label">合計料金</div>
-          <div class="info-value" style="color: #E53935; font-weight: bold;">¥4,800</div>
-        </div>
-
-        <button class="btn-cancel" onclick="cancelReservation('すまいるキッズ保育園')">予約をキャンセル</button>
-      </div>
+    <div class="card-list" id="reservation-container">
+      <!-- JavaScriptで動的に表示します -->
     </div>
   </div>
 
-  <script>
-    function cancelReservation(name) {
-      if (confirm(name + ' の予約をキャンセルしますか？')) {
-        alert('キャンセルを受け付けました。');
-      }
-    }
-  </script>
+  <script src="confirm-script.js"></script>
 </body>
 </html>
